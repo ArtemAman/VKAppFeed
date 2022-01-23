@@ -8,13 +8,21 @@
 import UIKit
 
 class AuthenticationViewController: UIViewController {
+    
+    private var authService: AuthenticationService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authService = AuthenticationService()
 
-        // Do any additional setup after loading the view.
+        
     }
     
+    @IBAction func loginAction() {
+        print("login button pressed")
+        authService.wakeUpSession()
+    }
     
     /*
     // MARK: - Navigation
