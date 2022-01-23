@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A005A76A4D8C92E8AF35517 /* Pods_VKAppFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6DD2B7959CFE9CC0E27A85 /* Pods_VKAppFeed.framework */; };
+		F0C48DF0279D637E0011041D /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48DEF279D637E0011041D /* AuthenticationService.swift */; };
+		F0C48DF7279D67BF0011041D /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C48DF6279D67BF0011041D /* AuthenticationViewController.storyboard */; };
+		F0C48DFB279D85EF0011041D /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48DFA279D85EF0011041D /* AuthenticationViewController.swift */; };
 		F0DFFC19279D5A2300D911A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */; };
 		F0DFFC1B279D5A2300D911A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */; };
-		F0DFFC1D279D5A2300D911A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC1C279D5A2300D911A2 /* ViewController.swift */; };
-		F0DFFC20279D5A2300D911A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DFFC1E279D5A2300D911A2 /* Main.storyboard */; };
 		F0DFFC22279D5A2300D911A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0DFFC21279D5A2300D911A2 /* Assets.xcassets */; };
 		F0DFFC25279D5A2300D911A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DFFC23279D5A2300D911A2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E6DD2B7959CFE9CC0E27A85 /* Pods_VKAppFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKAppFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD435C097BE6F9CAB46C3FF8 /* Pods-VKAppFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKAppFeed.debug.xcconfig"; path = "Target Support Files/Pods-VKAppFeed/Pods-VKAppFeed.debug.xcconfig"; sourceTree = "<group>"; };
+		F0C48DEF279D637E0011041D /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		F0C48DF6279D67BF0011041D /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
+		F0C48DFA279D85EF0011041D /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		F0DFFC15279D5A2300D911A2 /* VKAppFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKAppFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F0DFFC1C279D5A2300D911A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F0DFFC1F279D5A2300D911A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0DFFC21279D5A2300D911A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0DFFC24279D5A2300D911A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0DFFC26279D5A2300D911A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9953A2B7478C800376A9FE3 /* Pods-VKAppFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKAppFeed.release.xcconfig"; path = "Target Support Files/Pods-VKAppFeed/Pods-VKAppFeed.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A005A76A4D8C92E8AF35517 /* Pods_VKAppFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DDFAC30426D3DB9929519D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD435C097BE6F9CAB46C3FF8 /* Pods-VKAppFeed.debug.xcconfig */,
+				F9953A2B7478C800376A9FE3 /* Pods-VKAppFeed.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9AC4FE56E8DBD310AC2956BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E6DD2B7959CFE9CC0E27A85 /* Pods_VKAppFeed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0C48DF1279D63A40011041D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F0C48DEF279D637E0011041D /* AuthenticationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F0C48DFD279D86310011041D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F0C48DFA279D85EF0011041D /* AuthenticationViewController.swift */,
+				F0C48DF6279D67BF0011041D /* AuthenticationViewController.storyboard */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		F0DFFC0C279D5A2300D911A2 = {
 			isa = PBXGroup;
 			children = (
 				F0DFFC17279D5A2300D911A2 /* VKAppFeed */,
 				F0DFFC16279D5A2300D911A2 /* Products */,
+				2DDFAC30426D3DB9929519D2 /* Pods */,
+				9AC4FE56E8DBD310AC2956BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +99,10 @@
 		F0DFFC17279D5A2300D911A2 /* VKAppFeed */ = {
 			isa = PBXGroup;
 			children = (
+				F0C48DFD279D86310011041D /* Authentication */,
+				F0C48DF1279D63A40011041D /* Services */,
 				F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */,
 				F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */,
-				F0DFFC1C279D5A2300D911A2 /* ViewController.swift */,
-				F0DFFC1E279D5A2300D911A2 /* Main.storyboard */,
 				F0DFFC21279D5A2300D911A2 /* Assets.xcassets */,
 				F0DFFC23279D5A2300D911A2 /* LaunchScreen.storyboard */,
 				F0DFFC26279D5A2300D911A2 /* Info.plist */,
@@ -74,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0DFFC29279D5A2300D911A2 /* Build configuration list for PBXNativeTarget "VKAppFeed" */;
 			buildPhases = (
+				D9DB6988F6FD84C06C0AE9D6 /* [CP] Check Pods Manifest.lock */,
 				F0DFFC11279D5A2300D911A2 /* Sources */,
 				F0DFFC12279D5A2300D911A2 /* Frameworks */,
 				F0DFFC13279D5A2300D911A2 /* Resources */,
+				A82E8B7D1931415C0C151F36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,35 +171,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0DFFC25279D5A2300D911A2 /* LaunchScreen.storyboard in Resources */,
+				F0C48DF7279D67BF0011041D /* AuthenticationViewController.storyboard in Resources */,
 				F0DFFC22279D5A2300D911A2 /* Assets.xcassets in Resources */,
-				F0DFFC20279D5A2300D911A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A82E8B7D1931415C0C151F36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKAppFeed/Pods-VKAppFeed-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VKAppFeed/Pods-VKAppFeed-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VKAppFeed/Pods-VKAppFeed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9DB6988F6FD84C06C0AE9D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKAppFeed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F0DFFC11279D5A2300D911A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0DFFC1D279D5A2300D911A2 /* ViewController.swift in Sources */,
+				F0C48DFB279D85EF0011041D /* AuthenticationViewController.swift in Sources */,
 				F0DFFC19279D5A2300D911A2 /* AppDelegate.swift in Sources */,
 				F0DFFC1B279D5A2300D911A2 /* SceneDelegate.swift in Sources */,
+				F0C48DF0279D637E0011041D /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F0DFFC1E279D5A2300D911A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F0DFFC1F279D5A2300D911A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F0DFFC23279D5A2300D911A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +364,7 @@
 		};
 		F0DFFC2A279D5A2300D911A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD435C097BE6F9CAB46C3FF8 /* Pods-VKAppFeed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +375,6 @@
 				INFOPLIST_FILE = VKAppFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +392,7 @@
 		};
 		F0DFFC2B279D5A2300D911A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9953A2B7478C800376A9FE3 /* Pods-VKAppFeed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +403,6 @@
 				INFOPLIST_FILE = VKAppFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
