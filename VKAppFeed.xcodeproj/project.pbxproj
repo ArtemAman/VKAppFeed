@@ -11,6 +11,7 @@
 		F0C48DF0279D637E0011041D /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48DEF279D637E0011041D /* AuthenticationService.swift */; };
 		F0C48DF7279D67BF0011041D /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0C48DF6279D67BF0011041D /* AuthenticationViewController.storyboard */; };
 		F0C48DFB279D85EF0011041D /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48DFA279D85EF0011041D /* AuthenticationViewController.swift */; };
+		F0C48E03279EFD6A0011041D /* StoryboardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E02279EFD6A0011041D /* StoryboardLoader.swift */; };
 		F0DFFC19279D5A2300D911A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */; };
 		F0DFFC1B279D5A2300D911A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */; };
 		F0DFFC22279D5A2300D911A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0DFFC21279D5A2300D911A2 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		F0C48DEF279D637E0011041D /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		F0C48DF6279D67BF0011041D /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
 		F0C48DFA279D85EF0011041D /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F0C48E02279EFD6A0011041D /* StoryboardLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoader.swift; sourceTree = "<group>"; };
 		F0DFFC15279D5A2300D911A2 /* VKAppFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKAppFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				F0DFFC21279D5A2300D911A2 /* Assets.xcassets */,
 				F0DFFC23279D5A2300D911A2 /* LaunchScreen.storyboard */,
 				F0DFFC26279D5A2300D911A2 /* Info.plist */,
+				F0C48E02279EFD6A0011041D /* StoryboardLoader.swift */,
 			);
 			path = VKAppFeed;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C48E03279EFD6A0011041D /* StoryboardLoader.swift in Sources */,
 				F0C48DFB279D85EF0011041D /* AuthenticationViewController.swift in Sources */,
 				F0DFFC19279D5A2300D911A2 /* AppDelegate.swift in Sources */,
 				F0DFFC1B279D5A2300D911A2 /* SceneDelegate.swift in Sources */,

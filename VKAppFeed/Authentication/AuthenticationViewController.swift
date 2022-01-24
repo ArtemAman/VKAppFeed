@@ -7,14 +7,16 @@
 
 import UIKit
 
-class AuthenticationViewController: UIViewController {
+class AuthenticationViewController: UIViewController, AuthenticationServiceDelegate{
+
+    
     
     private var authService: AuthenticationService!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        authService = AuthenticationService()
+        authService = AppDelegate.shared().authService
+        authService.delegate = self
 
         
     }
@@ -33,5 +35,22 @@ class AuthenticationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: funcs of AuthenticationServiceDelegate
+    
+    func authServiceShouldShow(_ viewController: UIViewController) {
+        print(#function)
+        self.present(viewController, animated: true, completion: nil)
+        print("мы завершили презент вьюхи")
+    }
+    
+    func authServiceSignIn() {
+        print(#function)
+    }
+    
+    func authServiceDidSignInFail() {
+        print(#function)
+    }
+
 
 }
