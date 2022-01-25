@@ -8,7 +8,7 @@
 import UIKit
 import VK_ios_sdk
 
-protocol AuthenticationServiceDelegate {
+protocol AuthenticationServiceDelegate: class {
     
     func authServiceShouldShow(_ viewController:UIViewController)
     func authServiceSignIn()
@@ -19,7 +19,11 @@ final class AuthenticationService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
 
     let appId = "8057165"
     let vkSdk: VKSdk
-    var delegate:AuthenticationServiceDelegate?
+    weak var delegate:AuthenticationServiceDelegate?
+    
+    var token: String? {
+        return VKSdk.accessToken()?.accessToken
+    }
     
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appId)
@@ -32,18 +36,19 @@ final class AuthenticationService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func wakeUpSession() {
         
-        let scope = ["offline"]
+        let scope = ["offline", "wall", "friends"]
         
-        VKSdk.wakeUpSession(scope) { state, error in
+        VKSdk.wakeUpSession(scope) {[delegate] (state, error) in
             if state == VKAuthorizationState.authorized {
                 print("VKAuthorizationState.authorized")
-                self.delegate?.authServiceSignIn()
+//                VKSdk.authorize(scope, with: .disableSafariController)
+                delegate?.authServiceSignIn()
             } else if state == VKAuthorizationState.initialized {
                 print("VKAuthorizationState.initialized")
-                VKSdk.authorize(scope)
+                VKSdk.authorize(scope, with: .disableSafariController)
             } else {
                 print("Auth problem. state -- \(state), error -- \(error)")
-                self.delegate?.authServiceDidSignInFail()
+                delegate?.authServiceDidSignInFail()
             }
         }
         
@@ -53,7 +58,11 @@ final class AuthenticationService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
-        delegate?.authServiceSignIn()
+        if result.token != nil {
+            delegate?.authServiceSignIn()
+            print(result.token.hashValue)
+        }
+        
     }
     
     func vkSdkUserAuthorizationFailed() {

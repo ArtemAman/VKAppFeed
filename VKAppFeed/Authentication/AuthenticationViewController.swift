@@ -41,15 +41,28 @@ class AuthenticationViewController: UIViewController, AuthenticationServiceDeleg
     func authServiceShouldShow(_ viewController: UIViewController) {
         print(#function)
         self.present(viewController, animated: true, completion: nil)
-        print("мы завершили презент вьюхи")
+        
     }
     
     func authServiceSignIn() {
         print(#function)
+        let navVC = navVCsetup()
+        self.present(navVC, animated: true, completion: nil)
+         
     }
     
     func authServiceDidSignInFail() {
         print(#function)
+    }
+    
+    
+    private func navVCsetup() -> UINavigationController {
+        let feedVC = FeedViewController(nibName: nil, bundle: nil)
+        let navVC = UINavigationController(rootViewController: feedVC)
+        navVC.modalPresentationStyle = .fullScreen
+        return navVC
+        
+        
     }
 
 
