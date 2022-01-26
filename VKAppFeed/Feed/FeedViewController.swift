@@ -9,20 +9,16 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let networkService = NetworkService()
+    private var fetcher: ResponseFetcher = ResponseFetcher(networkService: NetworkService())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.request { data, error in
-            if let error = error {
-                print("Error occured \(error.localizedDescription)")
+        fetcher.fetchData { response in
+            guard let feedResponse = response else { return }
+            feedResponse.items.map { item in
+                print(item.date)
             }
-            guard let data = data else {
-                return
-            }
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
-            print(json)
         }
         
         title = "VK Feed"
