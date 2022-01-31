@@ -23,6 +23,7 @@ class ResponseFetcher {
                 response(nil)
             }
             guard let data = data else {
+                print("Error occured")
                 return
             }
             let decoder = JSONDecoder()

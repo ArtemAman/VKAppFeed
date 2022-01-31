@@ -57,7 +57,7 @@ class AuthenticationViewController: UIViewController, AuthenticationServiceDeleg
     
     
     private func navVCsetup() -> UINavigationController {
-        let feedVC = FeedViewController(nibName: nil, bundle: nil)
+        let feedVC = NewsfeedViewController(nibName: nil, bundle: nil)
         let navVC = UINavigationController(rootViewController: feedVC)
         navVC.modalPresentationStyle = .fullScreen
         return navVC
