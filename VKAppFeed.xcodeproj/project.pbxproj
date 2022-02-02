@@ -27,6 +27,11 @@
 		F0C48E3F27A446020011041D /* WebimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E3E27A446020011041D /* WebimageView.swift */; };
 		F0C48E4127A807580011041D /* NewsFeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4027A807580011041D /* NewsFeedCellLayoutCalculator.swift */; };
 		F0C48E4327A832E60011041D /* String+ Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4227A832E60011041D /* String+ Height.swift */; };
+		F0C48E4627A9926B0011041D /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4527A9926B0011041D /* GalleryCollectionView.swift */; };
+		F0C48E4827A993D00011041D /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4727A993D00011041D /* GalleryCollectionViewCell.swift */; };
+		F0C48E4A27A9CC790011041D /* RowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4927A9CC790011041D /* RowLayout.swift */; };
+		F0C48E4D27AB06A30011041D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4C27AB06A30011041D /* TitleView.swift */; };
+		F0C48E4F27AB1BE10011041D /* InsetableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C48E4E27AB1BE10011041D /* InsetableTextField.swift */; };
 		F0DFFC19279D5A2300D911A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */; };
 		F0DFFC1B279D5A2300D911A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */; };
 		F0DFFC22279D5A2300D911A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0DFFC21279D5A2300D911A2 /* Assets.xcassets */; };
@@ -55,6 +60,11 @@
 		F0C48E3E27A446020011041D /* WebimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebimageView.swift; sourceTree = "<group>"; };
 		F0C48E4027A807580011041D /* NewsFeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
 		F0C48E4227A832E60011041D /* String+ Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ Height.swift"; sourceTree = "<group>"; };
+		F0C48E4527A9926B0011041D /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		F0C48E4727A993D00011041D /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0C48E4927A9CC790011041D /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
+		F0C48E4C27AB06A30011041D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		F0C48E4E27AB1BE10011041D /* InsetableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetableTextField.swift; sourceTree = "<group>"; };
 		F0DFFC15279D5A2300D911A2 /* VKAppFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKAppFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0DFFC18279D5A2300D911A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0DFFC1A279D5A2300D911A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +135,8 @@
 		F0C48E2727A1B57E0011041D /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				F0C48E4B27AB06740011041D /* TitleView */,
+				F0C48E4427A9923E0011041D /* GalleryView */,
 				F0C48E3827A2F9740011041D /* Cell */,
 				F0C48E2C27A1B5BA0011041D /* NewsfeedInteractor.swift */,
 				F0C48E2927A1B5BA0011041D /* NewsfeedModels.swift */,
@@ -153,6 +165,25 @@
 				F0C48E4227A832E60011041D /* String+ Height.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F0C48E4427A9923E0011041D /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				F0C48E4527A9926B0011041D /* GalleryCollectionView.swift */,
+				F0C48E4727A993D00011041D /* GalleryCollectionViewCell.swift */,
+				F0C48E4927A9CC790011041D /* RowLayout.swift */,
+			);
+			path = GalleryView;
+			sourceTree = "<group>";
+		};
+		F0C48E4B27AB06740011041D /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				F0C48E4C27AB06A30011041D /* TitleView.swift */,
+				F0C48E4E27AB1BE10011041D /* InsetableTextField.swift */,
+			);
+			path = TitleView;
 			sourceTree = "<group>";
 		};
 		F0DFFC0C279D5A2300D911A2 = {
@@ -305,9 +336,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C48E4627A9926B0011041D /* GalleryCollectionView.swift in Sources */,
 				F0C48E1527A18C290011041D /* ResponseFetcher.swift in Sources */,
+				F0C48E4A27A9CC790011041D /* RowLayout.swift in Sources */,
 				F0C48E03279EFD6A0011041D /* StoryboardLoader.swift in Sources */,
 				F0C48DFB279D85EF0011041D /* AuthenticationViewController.swift in Sources */,
+				F0C48E4F27AB1BE10011041D /* InsetableTextField.swift in Sources */,
 				F0C48E3427A1B5BA0011041D /* NewsfeedPresenter.swift in Sources */,
 				F0C48E0C27A02DE60011041D /* NetworkService.swift in Sources */,
 				F0C48E3027A1B5BA0011041D /* NewsfeedModels.swift in Sources */,
@@ -323,8 +357,10 @@
 				F0C48E0E27A02FB20011041D /* API.swift in Sources */,
 				F0C48DF0279D637E0011041D /* AuthenticationService.swift in Sources */,
 				F0C48E3C27A43EC50011041D /* NewsFeedCellConstants.swift in Sources */,
+				F0C48E4827A993D00011041D /* GalleryCollectionViewCell.swift in Sources */,
 				F0C48E3A27A2F98A0011041D /* NewsFeedCell.swift in Sources */,
 				F0C48E3327A1B5BA0011041D /* NewsfeedInteractor.swift in Sources */,
+				F0C48E4D27AB06A30011041D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
