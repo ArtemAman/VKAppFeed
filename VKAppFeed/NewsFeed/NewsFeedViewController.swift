@@ -85,6 +85,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
       
       setupAll()
       interactor?.makeRequest(request: .getNewsFeed)
+      interactor?.makeRequest(request: .getUser)
       
       
   }
@@ -103,6 +104,8 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
       case .displayNewsFeed(feedViewModel: let feedViewModel):
           self.feedViewModel = feedViewModel
           tableView.reloadData()
+      case .displayUser(userViewModel: let userViewModel):
+          titleView.set(userViewModel: userViewModel)
       }
   
   }

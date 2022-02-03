@@ -13,4 +13,5 @@ struct API {
     static let host = "api.vk.com"
     static let version = "5.131" 
     static let method = "/method/newsfeed.get"
+    static let user = "/method/users.get"
 }

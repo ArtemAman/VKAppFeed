@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+protocol TitleViewModel {
+    
+    var imageUrlString:String? { get }
+}
+
 class TitleView: UIView {
     
     
@@ -32,6 +38,9 @@ class TitleView: UIView {
         makeContrainsts()
     }
     
+    func set(userViewModel: TitleViewModel) {
+        avatar.set(imageURL: userViewModel.imageUrlString)
+    }
     private func makeContrainsts() {
         
         NSLayoutConstraint.activate([
