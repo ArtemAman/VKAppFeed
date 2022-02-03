@@ -18,7 +18,13 @@ struct CellConstants {
     static let bottomViewElementWidth:CGFloat = 74
     static let kitHeight:CGFloat = 15
     
+    static let postMinLinesToShowButton:CGFloat = 8
+    static let postMinLinesShowedByButton:CGFloat = 6
+    
     static let cardViewInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 8)
     static let postLabelInsets: UIEdgeInsets = UIEdgeInsets(top: 8 + CellConstants.topViewHeight + 8 , left: 8, bottom: 8, right: 8)
     
+    static let moreTexButtonSize:CGSize = CGSize(width: 170, height: 30)
+    
 }
+
