@@ -100,7 +100,7 @@ class NewsFeedCell: UITableViewCell {
         return view
     } ()
     
-    // third layer mb
+    // third layer
     
     private lazy var groupImage: WebImageView = {
         let image = WebImageView()
