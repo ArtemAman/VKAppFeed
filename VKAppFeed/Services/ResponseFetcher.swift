@@ -17,8 +17,9 @@ class ResponseFetcher {
         self.authService = authService
     }
     
-    func fetchData(response: @escaping (FeedResponse?) -> Void) {
-        let params = ["filters": "post, photo"]
+    func fetchData(nextBatchFrom: String?, response: @escaping (FeedResponse?) -> Void) {
+        var params = ["filters": "post, photo"]
+        params["start_from"] = nextBatchFrom
         networkService.request(path: API.method, params: params) { data, error in
             if let error = error {
                 print("Error occured \(error.localizedDescription)")

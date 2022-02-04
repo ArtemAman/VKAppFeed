@@ -23,8 +23,15 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
         table.backgroundColor = .systemIndigo
+        table.contentInset.top = 8
         return table
     }()
+    
+    private var refreshControll:UIRefreshControl =  {
+        let refreshControll = UIRefreshControl()
+        refreshControll.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControll
+    } ()
     
     private var titleView = TitleView()
     
@@ -41,12 +48,16 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
     let interactor            = NewsfeedInteractor()
     let presenter             = NewsfeedPresenter()
     let router                = NewsfeedRouter()
-    viewController.interactor = interactor
+    viewController.interactor =  interactor
     viewController.router     = router
     interactor.presenter      = presenter
     presenter.viewController  = viewController
     router.viewController     = viewController
   }
+    
+    @objc private func refresh() {
+        interactor?.makeRequest(request: .getNewsFeed)
+    }
 
     
     // do no use - only for exp
@@ -72,6 +83,7 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
         view.addSubview(tableView)
         tableView.register(NewsFeedCell.self, forCellReuseIdentifier: NewsFeedCell.reuseId)
         addConstraints()
+        tableView.addSubview(refreshControll)
     }
   
   // MARK: Routing
@@ -104,11 +116,18 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
       case .displayNewsFeed(feedViewModel: let feedViewModel):
           self.feedViewModel = feedViewModel
           tableView.reloadData()
+          refreshControll.endRefreshing()
       case .displayUser(userViewModel: let userViewModel):
           titleView.set(userViewModel: userViewModel)
       }
   
   }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height / 1.1 {
+            interactor?.makeRequest(request: .getextBatch)
+        }
+    }
     
     func revealPost(cell: NewsFeedCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }

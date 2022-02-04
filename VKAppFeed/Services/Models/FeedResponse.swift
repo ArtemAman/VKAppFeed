@@ -18,6 +18,7 @@ struct FeedResponse: Decodable {
     var items:[FeedItem]
     var groups:[Group]
     var profiles:[Profile]
+    var nextFrom: String?
 }
 
 protocol ProfileRepresentable {

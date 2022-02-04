@@ -69,11 +69,18 @@ class NewsFeedCell: UITableViewCell {
         return view
     } ()
     
-    private lazy var postLabel: UILabel = {
-        let label = UILabel()
-        label.font = CellConstants.postFont
-        label.numberOfLines = 0
-        return label
+    private lazy var postLabel: UITextView = {
+         
+        let text = UITextView()
+        text.font = CellConstants.postFont
+        text.isEditable  = false
+        text.isSelectable = true
+        text.isScrollEnabled = false
+        let padding = text.textContainer.lineFragmentPadding
+        text.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
+
+        text.dataDetectorTypes = UIDataDetectorTypes.all
+        return text
     } ()
     
     private lazy var moreButton:UIButton = {
@@ -90,7 +97,7 @@ class NewsFeedCell: UITableViewCell {
     
     private lazy var postImage: WebImageView = {
         let image = WebImageView()
-        image.backgroundColor = .systemCyan
+        image.backgroundColor = .lightGray
         return image
     } ()
     

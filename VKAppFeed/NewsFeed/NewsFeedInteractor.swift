@@ -29,11 +29,10 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
       switch request {
       
       case .getNewsFeed:
-          fetcher.fetchData { [weak self] response in
+          fetcher.fetchData(nextBatchFrom: nil) { [weak self] response in
               guard let feedResponse = response else { return }
               self?.feedResponse = feedResponse
               self?.presentFeed()
-
               
               }
       case .getUser:
@@ -46,6 +45,49 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
           revealedIds.append(postId)
           presentFeed()
       
+      case .getextBatch:
+          fetcher.fetchData(nextBatchFrom: feedResponse?.nextFrom) {[weak self] response in
+              
+              guard let response = response else { return }
+              guard self?.feedResponse?.nextFrom != response.nextFrom else { return }
+              
+              if self?.feedResponse == nil {
+                  self?.feedResponse = response
+              } else {
+                  self?.feedResponse?.items.append(contentsOf: response.items)
+                  self?.feedResponse?.items = response.items
+                  self?.feedResponse?.nextFrom = response.nextFrom
+                  
+                  // check profiles
+                  var profiles = response.profiles
+                  if let oldProfiles = self?.feedResponse?.profiles {
+                      let oldProfilesFiltered = oldProfiles.filter { profile in
+                          !response.profiles.contains(where: { $0.id == profile.id })
+                      }
+                      profiles.append(contentsOf: oldProfilesFiltered)
+                  }
+                  
+                  self?.feedResponse?.profiles = profiles
+                  
+                  // check groups
+                  var groups = response.groups
+                  if let oldGroups = self?.feedResponse?.groups {
+                      let oldGroupsFiltered = oldGroups.filter { group in
+                          !response.groups.contains(where: { $0.id == group.id })
+                      }
+                      groups.append(contentsOf: oldGroupsFiltered)
+                  }
+                  
+                  self?.feedResponse?.groups = groups
+              }
+              
+              guard let feedResponse = self?.feedResponse else {
+                  return
+              }
+
+              self?.feedResponse = feedResponse
+              self?.presentFeed()
+          }
       }
           
         
@@ -56,5 +98,4 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
         presenter?.presentData(response: .presentData(feed: feedResponse, revealedIds: revealedIds))
     }
   }
-
 

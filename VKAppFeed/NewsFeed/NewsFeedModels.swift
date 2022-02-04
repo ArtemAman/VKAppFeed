@@ -15,6 +15,7 @@ enum Newsfeed {
         case getNewsFeed
           case getUser
         case revealPostIds(postId: Int)
+          case getextBatch
       }
     }
     struct Response {
