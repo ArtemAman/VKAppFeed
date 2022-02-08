@@ -14,6 +14,7 @@ protocol NewsfeedPresentationLogic {
 class NewsfeedPresenter: NewsfeedPresentationLogic {
   weak var viewController: NewsfeedDisplayLogic?
     
+    
     let cellLayoutCalculator: FeedCellLayoutCalculateProtocol = FeedCellLayoutCalculator()
     
     let dateFormatter:DateFormatter = {
@@ -31,13 +32,16 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
           let cells = feed.items.map { feedItem in
               cellViewModel(feedItem: feedItem, profiles: feed.profiles, groups: feed.groups, revealedIds: revealedIds)
           }
-          
-          let feedViewModel = FeedViewModel.init(cells: cells)
+          let stringFormater = NSLocalizedString("newsfeed", comment: "")
+          let footerTitle = String.localizedStringWithFormat(stringFormater, cells.count)
+          let feedViewModel = FeedViewModel.init(cells: cells, footerTitle: footerTitle)
           viewController?.displayData(viewModel: .displayNewsFeed(feedViewModel:feedViewModel))
       case .presentUser(user: let user):
           let userViewModel = UserViewModel.init(imageUrlString: user.photo100)
           viewController?.displayData(viewModel: .displayUser(userViewModel: userViewModel))
           
+      case .presentFooterLoader:
+          viewController?.displayData(viewModel: .displayFooterLoader)
       }
   }
     

@@ -16,16 +16,31 @@ protocol NewsfeedDisplayLogic: class {
 class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellButtonPressDelegate{
     
     
-    lazy var tableView: UITableView = {
+    private lazy var gradientLayer: UIView = GradientView()
+    
+    private lazy var tableView: UITableView = {
         let table = UITableView()
         table.delegate = self
         table.dataSource = self
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
-        table.backgroundColor = .systemIndigo
+        table.backgroundColor = .clear
         table.contentInset.top = 8
         return table
     }()
+    
+    
+    private lazy var topBar:UIView = {
+        let topBar = UIView()
+        topBar.layer.backgroundColor = UIColor.white.cgColor
+        topBar.layer.shadowOpacity = 0.3
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 8
+        topBar.translatesAutoresizingMaskIntoConstraints = false
+        topBar.isHidden = true
+        return topBar
+    }()
+    
     
     private var refreshControll:UIRefreshControl =  {
         let refreshControll = UIRefreshControl()
@@ -33,14 +48,15 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
         return refreshControll
     } ()
     
-    private var titleView = TitleView()
+    private lazy var titleView = TitleView()
+    private lazy var footerView = FooterView()
     
     // MARK: fetcher
     
   var interactor: NewsfeedBusinessLogic?
   var router: (NSObjectProtocol & NewsfeedRoutingLogic)?
 
-    private var feedViewModel = FeedViewModel.init(cells: [])
+    private var feedViewModel = FeedViewModel.init(cells: [], footerTitle: nil)
   // MARK: Setup
   
   private func setup() {
@@ -60,30 +76,38 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
     }
 
     
-    // do no use - only for exp
-    
-    private func updateLayout(with size: CGSize) {
-       self.tableView.frame = CGRect.init(origin: .zero, size: size)
-    }
-    
     private func addConstraints() -> () {
         
         NSLayoutConstraint.activate([
             
+            gradientLayer.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            gradientLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            gradientLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            gradientLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            
+            topBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            topBar.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
         ])
     }
     
     private func setupAll() -> () {
         setup()
-        setupTopBar()
+        view.addSubview(gradientLayer)
         view.addSubview(tableView)
+        setupTopBar()
         tableView.register(NewsFeedCell.self, forCellReuseIdentifier: NewsFeedCell.reuseId)
+        
         addConstraints()
+        
         tableView.addSubview(refreshControll)
+        tableView.tableFooterView = footerView
     }
   
   // MARK: Routing
@@ -102,7 +126,10 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
       
   }
     
+    
     private func setupTopBar() {
+        
+        self.view.addSubview(topBar)
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationItem.titleView = titleView
@@ -115,10 +142,14 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
 
       case .displayNewsFeed(feedViewModel: let feedViewModel):
           self.feedViewModel = feedViewModel
+          footerView.setTitle(title: feedViewModel.footerTitle)
           tableView.reloadData()
+          
           refreshControll.endRefreshing()
       case .displayUser(userViewModel: let userViewModel):
           titleView.set(userViewModel: userViewModel)
+      case .displayFooterLoader:
+          footerView.showLoader()
       }
   
   }
@@ -128,6 +159,23 @@ class NewsfeedViewController: UIViewController, NewsfeedDisplayLogic, NewsCellBu
             interactor?.makeRequest(request: .getextBatch)
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        
+        if (scrollView.contentOffset.y <= 0){
+            topBar.isHidden = true
+        } else {
+            guard let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height else { return }
+            guard height != 0 else { return }
+            topBar.heightAnchor.constraint(equalToConstant: height).isActive = true
+            topBar.updateConstraints()
+            topBar.isHidden = false
+
+        }
+    }
+    
+    
     
     func revealPost(cell: NewsFeedCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
@@ -148,7 +196,6 @@ extension NewsfeedViewController: UITableViewDelegate, UITableViewDataSource {
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.setData(viewModel: cellViewModel)
         cell.delegate = self
-        print("\(tableView.subviews.count) common cells")
         return cell
     }
     

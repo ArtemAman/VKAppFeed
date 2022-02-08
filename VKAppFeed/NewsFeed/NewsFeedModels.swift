@@ -12,9 +12,9 @@ enum Newsfeed {
   enum Model {
     struct Request {
       enum RequestType {
-        case getNewsFeed
+          case getNewsFeed
           case getUser
-        case revealPostIds(postId: Int)
+          case revealPostIds(postId: Int)
           case getextBatch
       }
     }
@@ -22,12 +22,14 @@ enum Newsfeed {
       enum ResponseType {
           case presentData(feed: FeedResponse, revealedIds: [Int])
           case presentUser(user: UserResponse)
+          case presentFooterLoader
       }
     }
     struct ViewModel {
       enum ViewModelData {
         case displayNewsFeed(feedViewModel: FeedViewModel)
         case displayUser(userViewModel: UserViewModel)
+        case displayFooterLoader
       }
     }
   }
@@ -67,5 +69,6 @@ struct FeedViewModel {
     }
     
     let cells: [Cell]
+    let footerTitle: String?
 }
 

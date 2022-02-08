@@ -46,6 +46,11 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
           presentFeed()
       
       case .getextBatch:
+          
+          // footer loader
+          presenter?.presentData(response: Newsfeed.Model.Response.ResponseType.presentFooterLoader)
+          
+          // get next psck of newsfeed
           fetcher.fetchData(nextBatchFrom: feedResponse?.nextFrom) {[weak self] response in
               
               guard let response = response else { return }
@@ -54,11 +59,11 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
               if self?.feedResponse == nil {
                   self?.feedResponse = response
               } else {
+                  
                   self?.feedResponse?.items.append(contentsOf: response.items)
-                  self?.feedResponse?.items = response.items
                   self?.feedResponse?.nextFrom = response.nextFrom
                   
-                  // check profiles
+                  // add unique profiles
                   var profiles = response.profiles
                   if let oldProfiles = self?.feedResponse?.profiles {
                       let oldProfilesFiltered = oldProfiles.filter { profile in
@@ -69,7 +74,7 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
                   
                   self?.feedResponse?.profiles = profiles
                   
-                  // check groups
+                  // add unique groups
                   var groups = response.groups
                   if let oldGroups = self?.feedResponse?.groups {
                       let oldGroupsFiltered = oldGroups.filter { group in
@@ -81,11 +86,13 @@ class NewsfeedInteractor: NewsfeedBusinessLogic {
                   self?.feedResponse?.groups = groups
               }
               
-              guard let feedResponse = self?.feedResponse else {
-                  return
-              }
-
-              self?.feedResponse = feedResponse
+              // unused functionality
+              
+//              guard let feedResponse = self?.feedResponse else {
+//                  return
+//              }
+//
+//              self?.feedResponse = feedResponse
               self?.presentFeed()
           }
       }

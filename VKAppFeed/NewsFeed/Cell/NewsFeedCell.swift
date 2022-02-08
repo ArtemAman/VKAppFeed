@@ -236,7 +236,7 @@ class NewsFeedCell: UITableViewCell {
 
         overlayMaker()
         moreButton.addTarget(self, action: #selector(moreTextButtonAction), for: .touchUpInside)
-        self.backgroundColor = .systemIndigo
+        self.backgroundColor = .clear
 //
        
     }
